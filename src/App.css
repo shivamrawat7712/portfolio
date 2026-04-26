@@ -1,0 +1,170 @@
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+}
+
+.hero-subtitle {
+  color: var(--text-secondary);
+  font-family: var(--font-main);
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.hero-description {
+  max-width: 600px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  font-size: 1.2rem;
+}
+
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+  text-align: left;
+}
+
+.work-card {
+  padding: 3rem;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.work-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+.work-card h3 {
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  font-size: 2.2rem;
+}
+
+.work-card h4 {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: var(--font-main);
+}
+
+.work-card p {
+  font-family: var(--font-main);
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+/* Gallery Masonry Layout */
+.gallery-grid {
+  column-count: 1;
+  column-gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+@media (min-width: 768px) {
+  .gallery-grid {
+    column-count: 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .gallery-grid {
+    column-count: 3;
+  }
+}
+
+.gallery-item {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  break-inside: avoid;
+  margin-bottom: 1.5rem;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+.gallery-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--glass-bg);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  padding: 2rem;
+  text-align: center;
+}
+
+.gallery-overlay p {
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  font-weight: 500;
+  font-family: var(--font-main);
+  transform: translateY(20px);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  margin: 0;
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+
+.gallery-item:hover .gallery-overlay p {
+  transform: translateY(0);
+}
+
+/* Hero Carousel */
+.hero-carousel-wrapper {
+  width: min(90vw, 360px);
+  height: min(130vw, 520px); /* 2:3 portrait aspect ratio */
+  border-radius: 32px;
+  overflow: hidden;
+  margin: 0 auto;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.12);
+  position: relative;
+  flex-shrink: 0;
+  border: 1px solid var(--glass-border);
+}
+
+.hero-carousel-track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.carousel-slide {
+  height: 100%;
+  flex-shrink: 0;
+}
+
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
